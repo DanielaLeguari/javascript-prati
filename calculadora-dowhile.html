@@ -1,0 +1,26 @@
+<script>
+    let entrada;
+    do {
+        let num1 = parseFloat(prompt('Digite o numero 1'));
+        let num2 = parseFloat(prompt('Digite o numero 2'));
+        let op = prompt('Escolha uma operacao: +, -, /, *, **');
+        let resp;
+        if (op == '+') {
+            resp = num1 + num2;
+        } else if (op == '-') {
+            resp = num1 - num2;
+        } else if (op == '/') {
+            resp = num1 / num2;
+        } else if (op == '*') {
+            resp = num1 * num2;
+        } else if (op == '**') {
+            resp = num1 ** num2;
+        } else {
+            alert('Você digitou uma operação inválida, tente novamente.');
+        }
+        alert(resp);
+        entrada = prompt('Deseja realizar outra operação? (s/n)');
+    } while (entrada == "s");
+    alert('Encerrando calculadora!');
+
+</script>

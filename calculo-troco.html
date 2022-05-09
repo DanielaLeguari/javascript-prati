@@ -1,0 +1,76 @@
+<script>
+    let novo_pedido = 'S';
+    while (novo_pedido != 'N') {
+        let nome = prompt('Digite o nome de cliente.:')
+        let valor_produto = parseFloat(prompt('Digite o valor do produto.:'));
+        let dinheiro = parseFloat(prompt("Digite o valor recebido em dinheiro do cliente.:"));
+        let troco = dinheiro - valor_produto;
+        let cedulas100 = 0, cedulas50 = 0, cedulas20 = 0, cedulas10 = 0, cedulas5 = 0, cedulas2 = 0, moeda1 = 0, moeda50 = 0, moeda25 = 0, moeda10 = 0, moeda5 = 0, moeda01 = 0;
+
+        if (troco >= 100) {
+
+            cedulas100 = Math.trunc(troco / 100);
+            troco = troco - (cedulas100 * 100);
+        }
+        if (troco >= 50) {
+            cedulas50 = Math.trunc(troco / 50);
+            troco = troco - (cedulas50 * 50);
+        }
+        if (troco >= 20) {
+            cedulas20 = Math.trunc(troco / 20);
+            troco = troco - (cedulas20 * 20);
+        }
+        if (troco >= 10) {
+            cedulas10 = Math.trunc(troco / 10);
+            troco = troco - (cedulas10 * 10);
+        }
+        if (troco >= 5) {
+            cedulas5 = Math.trunc(troco / 5);
+            troco = troco - (cedulas5 * 5);
+        }
+        if (troco >= 2) {
+            cedulas2 = Math.trunc(troco / 2);
+            troco = troco - (cedulas2 * 2);
+        }
+        if (troco >= 1) {
+            moeda1 = Math.trunc(troco / 1);
+            troco = troco - (moeda1 * 1);
+        }
+        if (troco >= 0.50) {
+            moeda50 = Math.trunc(troco / 0.50);
+            troco = troco - (moeda50 * 0.50);
+        }
+        if (troco >= 0.25) {
+            moeda25 = Math.trunc(troco / 0.25);
+            troco = troco - (moeda25 * 0.25);
+        }
+        if (troco >= 0.10) {
+            moeda10 = Math.trunc(troco / 0.10)
+            troco = troco - (moeda10 * 0.10);
+        }
+        if (troco >= 0.05) {
+            moeda5 = Math.trunc(troco / 0.05);
+            troco = troco - (moeda5 * 0.05);
+        }
+        if (troco >= 0.01) {
+            moeda01 = Math.trunc(troco / 0.01);
+            troco = troco - (moeda01 * 0.01);
+        }
+
+        alert(nome);
+        alert('Cédulas de 100: ' + cedulas100 +
+            '\n Cédulas de 50: ' + cedulas50 +
+            '\n Cédulas de 20: ' + cedulas20 +
+            '\n Cédulas de 10: ' + cedulas10 +
+            '\n Cédulas de 5: ' + cedulas5 +
+            '\n Cédulas de 2: ' + cedulas2 +
+            '\n Moedas de 1 real: ' + moeda1 +
+            '\n Moedas de 50: ' + moeda50 +
+            '\n Moedas de 25: ' + moeda25 +
+            '\n Moedas de 10: ' + moeda10 +
+            '\n Moedas de 5: ' + moeda5 +
+            '\n Moedas de 01: ' + moeda01);
+        alert('R$ ' + (dinheiro - valor_produto));
+        novo_pedido = prompt('Deseja fazer novo pedido? (S/N)');
+    }
+</script>

@@ -1,0 +1,11 @@
+<script>
+    let numero = parseInt(prompt('Digite um número ou 0 para sair.:'));
+    let acumulador = 0;
+
+    while (numero != 0) {
+        acumulador += numero;
+        alert(acumulador);
+        numero = parseInt(prompt('Digite um número ou 0 para sair.:'));
+    }
+    alert('Você digitou 0, a soma acumulada é : ' + acumulador);
+</script>

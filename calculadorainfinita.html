@@ -1,0 +1,26 @@
+<script>
+
+    let numero = parseFloat(prompt('Digite um numero'));
+    let op = prompt('Escolha uma operacao: +, -, /, *, ** ou s para sair');
+    let acumulador = 0;
+    while (op != 's') {
+        if (op == '+') {
+            acumulador += numero;
+        } else if (op == '-') {
+            acumulador -= numero;
+        } else if (op == '/') {
+            acumulador /= numero;
+        } else if (op == '*') {
+            acumulador *= numero;
+        } else if (op == '**') {
+            acumulador **= numero;
+        } else {
+            alert('Você digitou uma operação inválida, tente novamente.');
+        }
+        alert('O resultado acumulado é :' + acumulador);
+        numero = parseFloat(prompt('Digite um numero'));
+        op = prompt('Escolha uma operacao: +, -, /, *, ** ou s para sair');
+    }
+    alert('O resultado acumulado é : ' + acumulador);
+
+</script>
