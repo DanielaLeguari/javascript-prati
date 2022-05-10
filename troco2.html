@@ -1,0 +1,84 @@
+<script>
+    var nome = prompt("Digite o o nome do cliente: ");
+    var vprod = prompt("Digite o valor do produto: ");
+    var vdinh = prompt("Digte o valor em dinheiro recebido do cliente: ");
+
+    vprod = Number(vprod);
+    vdinh = Number(vdinh);
+
+    var troco = vdinh - vprod;
+    
+    var dnota200 = troco / 200;
+    var dtroco200 = (dnota200 > 0)? parseInt(dnota200) : 0;
+    var rnota200 = troco % 200;
+
+    var dnota100 = rnota200 / 100;
+    var dtroco100 = (dnota100 > 0)? parseInt(dnota100) : 0;
+    var rnota100 = rnota200 % 100;
+
+    var dnota50 = rnota100 / 50;
+    var dtroco50 = (dnota50 > 0)? parseInt(dnota50) : 0;
+    var rnota50 = rnota100 % 50;
+
+    var dnota20 = rnota50 / 20;
+    var dtroco20 = (dnota20 > 0)? parseInt(dnota20) : 0;
+    var rnota20 = rnota50 % 20;
+
+    var dnota10 = rnota20 / 10;
+    var dtroco10 = (dnota10 > 0)? parseInt(dnota10) : 0;
+    var rnota10 = rnota20 % 10;
+
+    var dnota5 = rnota10 / 5;
+    var dtroco5 = (dnota5 > 0)? parseInt(dnota5) : 0;
+    var rnota5 = rnota10 % 5;
+
+    var dnota2 = rnota5 / 2;
+    var dtroco2 = (dnota2 > 0)? parseInt(dnota2) : 0;
+    var rnota2 = rnota5 % 2;
+
+    var dnota1 = rnota2 / 1;
+    var dtroco1 = (dnota1 > 0)? parseInt(dnota1) : 0;
+    var rnota1 = rnota2 % 1;
+
+    // moedas
+    var dmoeda50 = rnota1 / 0.50;
+    var dtrocomoeda50 = (dmoeda50 > 0)? parseInt(dmoeda50) : 0;
+    var rmoeda50 = (rnota1.toFixed(2) % 0.50);
+    
+    var dmoeda25 = rmoeda50 / 0.25;
+    var dtrocomoeda25 = (dmoeda25 > 0)? parseInt(dmoeda25) : 0;
+    var rmoeda25 = (rmoeda50.toFixed(2) % 0.25);
+
+    var dmoeda10 = rmoeda25 / 0.10;
+    var dtrocomoeda10 = (dmoeda10 > 0)? parseInt(dmoeda10) : 0;
+    var rmoeda10 = (rmoeda25.toFixed(2) % 0.10);
+
+    var dmoeda05 = rmoeda10 / 0.05;
+    var dtrocomoeda05 = (dmoeda05 > 0)? parseInt(dmoeda05) : 0;
+    var rmoeda05 = (rmoeda10.toFixed(2) % 0.05);
+
+
+    console.log("    Nome do Cliente:      " +nome);
+    console.log("    Valor do produto:     " +vprod);
+    console.log("    Valor recebido em dinheiro:     " +vdinh);
+    console.log("-----------------------------------------");
+    console.log(   dtroco200 + " x R$ 200,00 ");
+    console.log(   dtroco100 + " x R$ 100,00 ");
+    console.log(   dtroco50 + " x R$ 50,00 ");
+    console.log(   dtroco20 + " x R$ 20,00 ");
+    console.log(   dtroco10 + " x R$ 10,00 ");
+    console.log(   dtroco5 + " x R$ 05,00 ");
+    console.log(   dtroco2 + " x R$ 02,00 ");
+    console.log(   dtroco1 + " x R$ 01,00 ");
+    console.log(   dtrocomoeda50 + " x R$ 00,50 ");
+    console.log(   dtrocomoeda25 + " x R$ 00,25 ");
+    console.log(   dtrocomoeda10 + " x R$ 00,10 ");
+    console.log(   dtrocomoeda05 + " x R$ 00,05 ");
+
+
+
+
+    console.log("-----------------------------------------");
+    console.log("     Troco:     ", troco.toFixed(2));
+
+</script>
