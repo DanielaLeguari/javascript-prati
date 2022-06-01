@@ -1,0 +1,56 @@
+<meta charset="UTF-8">
+<!DOCTYPE html>
+<html>
+	<head>	
+		<title>
+		Cadastro
+		</title>
+		<script>
+
+			var totalCadastro= 0;
+			var nomes = [];
+			var emails = [];
+			var enderecos = [];
+			var whatsapps = [];
+
+			function gravarDados() {
+
+				var nome = document.getElementById("nome").value;
+				var email = document.getElementById("email").value;
+				var endereco = document.getElementById("endereco").value;
+				var whatsapp = document.getElementById("whatsapp").value;
+				nomes[totalCadastro] = nome;
+				emails[totalCadastro] = email;
+				enderecos[totalCadastro] = endereco;
+				whatsapps[totalCadastro] = whatsapp;
+
+				document.getElementById("usuarios").innerHTML += "<p onclick= 'exibir("+totalCadastro+")'>"+nome;
+				totalCadastro++;
+
+			}
+
+			function exibir(indice){
+
+				document.getElementById("cadastros").innerHTML = "Nome: " + nomes[indice] + "<br>email: "+emails[indice] + "<br>endereco: "+enderecos[indice]+"<br>whatsapp "+whatsapps[indice];
+
+			}
+
+		</script>
+	</head>
+	<body>
+		Nome: <input id="nome">
+		<br><br>
+		E-mail: <input id="email">
+		<br><br>
+		Endereço: <input id="endereco">
+		<br><br>
+		WhatsApp: <input id="whatsapp">
+		<br><br>
+		<button onclick="gravarDados()">Criar Cadastro</button>
+		<br><br><strong>Usuários:</strong> 
+		<p id="usuarios"></p>
+		<br><br>Cadastro:
+		<p id="cadastros"></p>
+	</body>
+
+</html>
