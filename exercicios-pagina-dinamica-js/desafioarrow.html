@@ -1,0 +1,24 @@
+<script>
+	
+	let estrutura = [
+	[{x:1,y:12},{x:10,y:20},{x:3,y:10}],
+	[{x:14,y:12},{x:1,y:10}],
+	[{x:15,y:17}]
+	];
+
+	for (item of estrutura){
+		console.log("----");
+		for (itemInterno of item) {
+			console.log(itemInterno.x + "," + itemInterno.y);
+		}
+	}
+
+	console.log("++++++++++++");
+
+	estrutura.forEach(item => {console.log("----");item.forEach(item2 => console.log(item2.x + "," +item2.y))});
+
+
+	console.log("************")
+
+
+</script>

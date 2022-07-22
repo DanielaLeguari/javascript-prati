@@ -1,0 +1,15 @@
+<html>
+<body>
+	<script>
+
+		function qualquerEstrutura(estrutura) {
+			alert(estrutura.usuario);
+		}
+
+		
+		fetch('http://localhost/js1/teste.json')
+			.then(data => data.json())
+			.then(json => qualquerEstrutura(json));
+			
+	</script>
+</body>

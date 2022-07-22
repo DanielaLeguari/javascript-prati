@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conta corrente</title>
+    <script src="contas.js"></script>
+    <script>
+      let contaCorrente = null;
+
+      function exibirDadosCliente() {
+        let nome = document.getElementById("nome").value;
+        let cpf = document.getElementById("cpf").value;
+        let email = document.getElementById("email").value;
+        let telefone = document.getElementById("telefone").value;
+        let conta = document.getElementById("conta").value;
+        let saldo = document.getElementById("saldo").value;
+
+        contaCorrente = new ContaCorrente(
+          nome,
+          cpf,
+          email,
+          telefone,
+          conta,
+          Number(saldo)
+        );
+        let dados = `<ul><li> CLIENTE: ${contaCorrente.nome} </li>
+      <li>CPF:${contaCorrente.cpf}</li>
+      <li>E-MAIL:${contaCorrente.email}</li>
+      <li>FONE:${contaCorrente.telefone}</li>
+      <li>CONTA:${contaCorrente.conta}</li></ul>`;
+
+        document.getElementById("dados").innerHTML = dados;
+
+        //document.getElementById("dados").innerHTML =
+        //contaCorrente.imprimirDadosCliente();
+      }
+
+      function depositar() {
+        let valorDepositar = document.getElementById("valorDepositar").value;
+        contaCorrente.depositar(Number(valorDepositar));
+      }
+
+      function sacar() {
+        let valorSacar = document.getElementById("valorSacar").value;
+        contaCorrente.sacar(Number(valorSacar));
+      }
+
+      function imprimirSaldo() {
+        document.getElementById("saldofinal").innerHTML =
+          contaCorrente.imprimirSaldo();
+      }
+    </script>
+  </head>
+
+  <body>
+    <div>
+      <h1>Insira seus dados:</h1>
+      <div>
+        <p>Nome: <input id="nome" /></p>
+      </div>
+      <div>
+        <p>CPF:<input id="cpf" /></p>
+      </div>
+      <div>
+        <p>E-mail:<input id="email" /></p>
+      </div>
+      <div>
+        <p>Telefone:<input id="telefone" /></p>
+      </div>
+      <div>
+        <p>Conta:<input id="conta" /></p>
+      </div>
+      <div>
+        <p>Saldo: <input id="saldo" /></p>
+      </div>
+      <button onclick="exibirDadosCliente()">Exibir Dados</button>
+    </div>
+    <span id="dados"> </span>
+
+    <h1>O que deseja fazer?</h1>
+
+    <div>
+      Depositar (R$):<input id="valorDepositar" />
+      <button onclick="depositar()">Depositar</button>
+    </div>
+    <br /><br />
+
+    <div>
+      Sacar (R$): <input id="valorSacar" />
+      <button onclick="sacar()">Sacar</button>
+    </div>
+    <br /><br />
+    <div>
+      <button onclick="imprimirSaldo()">Imprimir saldo</button>
+    </div>
+    <span id="saldofinal"> </span>
+  </body>
+</html>

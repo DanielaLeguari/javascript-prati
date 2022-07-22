@@ -1,0 +1,19 @@
+{
+	"cards": [
+		{
+			"titulo": "Este é o título",
+			"texto": "texto do primeiro card",
+			"teste": false
+		},
+		{
+			"titulo": "Este é outro título",
+			"texto": "texto do segundo card",
+			"teste": false
+		},
+		{
+			"titulo": "Um terceiro título",
+			"texto": "texto do terceiro card",
+			"teste": false
+		}
+	]
+}

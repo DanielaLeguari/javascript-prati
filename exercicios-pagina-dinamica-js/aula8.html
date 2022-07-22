@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+	<body>
+		<script>
+
+			let estruturaHtml ="";
+
+			function constroiHtml(card) {
+				estruturaHtml += "<tr><td>"+card.titulo +"</td>";
+				estruturaHtml += "<td>" + card.texto +"</td></tr>"
+				console.log(estruturaHtml);
+			}
+
+			function geraPagina(dados) {
+				estruturaHtml += "<table border=1>";
+                
+ 				/*for (var i=0; i <= array.lenght-1; i++) {
+					funcao( array[i] ); i=0
+				}
+
+
+
+				for (item in array) {
+					funcao( item );
+				}*/
+
+				//dados["cards"].forEach(constroiHtml);
+
+				for(var i=0; i<= dados["cards"].length-1; i++){
+					if(!dados["cards"][i].teste)
+						continue;
+					constroiHtml(dados["cards"][i]);
+				}
+
+				estruturaHtml +="</table>";
+
+				document.getElementById("exemplo").innerHTML = estruturaHtml;
+			}
+
+			
+			fetch('http://localhost/js1/lista1.json')
+				.then(response => response.json())
+				.then(geraPagina);
+				
+		</script> 
+		<div id="exemplo"></div>
+	</body>

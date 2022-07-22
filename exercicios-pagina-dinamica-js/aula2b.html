@@ -1,0 +1,12 @@
+<html>
+<body>
+	<script>
+
+		var x = "não recebi nada";
+		
+		fetch('http://localhost/js1/teste.txt')
+			.then(data => data.text())
+			.then(text => alert(text));
+			
+	</script>
+</body>

@@ -1,0 +1,68 @@
+<!doctype html>
+<meta charset="UTF-8">
+<html>
+
+<head>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+		crossorigin="anonymous"></script>
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="#">Navbar</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+				data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0" id="menu">
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="container">
+		<h1>Atividades</h1>
+		<form class="row g-3">
+			<div class="col-md-6">
+				<label for="inputEmail4" class="form-label">Fonte JSON</label>
+				<select id="opcoes" class="form-select">
+					<option value="R" selected>Restaurante</option>
+					<option value="C">Cursos</option>
+				</select>
+			</div>
+			<div class="col-12">
+				<button onclick="carregarJson()" type="button" class="btn btn-primary">Gerar Menu</button>
+			</div>
+		</form>
+	</div>
+
+	<script>
+		function geraMenu(dadosJson) {
+			let menu="";
+					for(var i=0; i < dadosJson["menu"].length; i++){		
+				menu += '<li class="nav-item"><a class="nav-link" href="#">'+ dadosJson["menu"][i] +'</a></li>';
+			}
+			document.getElementById("menu").innerHTML=menu;		
+		}
+		
+		function carregarJson() {
+			let opcao = document.getElementById("opcoes").value;
+	
+			if (opcao == "R") {
+				fetch('http://localhost/js1/menu_restaurante.json')
+					.then(response => response.json())
+					.then(geraMenu);
+			} else if (opcao == "C") {
+				fetch('http://localhost/js1/menu_cursos.json')
+					.then(response => response.json())
+					.then(geraMenu);
+			}
+		}
+
+	</script>
+</body>
